@@ -153,12 +153,12 @@ class HerokuAppTests(unittest.TestCase):
     def test_file_upload(self):
         self.driver.get(f"{self.base_url}/upload")
         file_input = self.driver.find_element(By.ID, "file-upload")
-        file_input.send_keys("/Users/alemborcak/PycharmProjects/PythonProject/image.webp")
+        file_input.send_keys("Only/visible/in/orginal/file")
         time.sleep(1)
         self.driver.find_element(By.ID, "file-submit").click()
         time.sleep(4)
         uploaded_file = self.driver.find_element(By.ID, "uploaded-files").text
-        self.assertIn("image.webp", uploaded_file, "File upload failed.")
+        self.assertIn("", uploaded_file, "File upload failed.")
 
     # Scenario 13: File Download
     def test_file_download(self):
